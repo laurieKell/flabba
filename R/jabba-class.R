@@ -22,6 +22,7 @@ validity<-function(object) {
 #'  
 #' @slot name     {A \code{character} name of  stock}
 #' @slot desc     {A \code{character} providing a fuller description of the object}       
+#' @slot version  {A \code{character} version}
 #' @slot range    {A \code{numeric} vector containing the quant and year ranges}
 #' @slot catch    {An \code{FLQuant}  total catch by year}        
 #' @slot index    {An \code{FLQuants} indicies of abundance}        
@@ -43,6 +44,7 @@ validity<-function(object) {
 #' @examples
 #' \dontrun{jabba()}
  setClass('biodyn', representation('FLComp',
+    version       ='character',
     catch         ='FLQuant',  
     indices       ='FLQuants',
     indices.se    ='FLQuants',
@@ -51,6 +53,7 @@ validity<-function(object) {
     priors        ='array'
     ),
   prototype(
+    version     ="v1.6beta",
     range       =unlist(list(minyear=as.numeric(NA), maxyear=as.numeric(NA))),
     catch       =FLQuant(),
     stock       =FLQuant(),
